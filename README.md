@@ -4,42 +4,40 @@
 
 <img src="./stats.svg" width="620" alt="Contributions in the last year"/>
 
-[darwinian ventures](https://darwinian-ventures.vercel.app) &nbsp;·&nbsp;
-[vesara](https://vesara-homepage.vercel.app) &nbsp;·&nbsp;
-[github](https://github.com/ANDREWBTC707)
-
 </div>
 
 <img src="./hd-about.svg" width="620" alt="about"/>
 
-> Builder in the Bay Area.<br>
-> AI agents for real operators. Games that hit hard.
+> Languages, systems, and tools.<br>
+> Less product pitch. More how it's built.
 
-I ship product for Darwinian Ventures — GTM systems, real-estate command<br>
-centers, and agent fleets that run against real workflows. On the side I'm<br>
-building Forest of Ravens, a Unity HDRP souls-like.
+I work across application code, agent workflows, game/runtime systems, and<br>
+the infra that keeps them shipping — APIs, data stores, automation, and UI.
 
 <img src="./hd-stack.svg" width="620" alt="stack"/>
 
-<samp>typescript &nbsp; csharp &nbsp; python &nbsp; react &nbsp; node &nbsp; unity &nbsp; solidity &nbsp; postgres &nbsp; docker &nbsp; git &nbsp; linux</samp>
+<samp>typescript &nbsp; csharp &nbsp; python &nbsp; javascript &nbsp; solidity &nbsp; sql &nbsp; html &nbsp; css</samp>
 
-<img src="./hd-projects.svg" width="620" alt="projects"/>
+<br>
 
-**[FORV4](https://github.com/ANDREWBTC707/FORV4)** &nbsp;·&nbsp; <samp>csharp, unity</samp><br>
-Forest of Ravens — HDRP souls-like. Successor to the FORV3 web build.<br>
-Combat, world, and systems work in progress.
+<samp>react &nbsp; node &nbsp; unity &nbsp; postgres &nbsp; docker &nbsp; linux &nbsp; git &nbsp; graphql &nbsp; rest</samp>
 
-**[DV-Command](https://github.com/ANDREWBTC707/DV-Command)** &nbsp;·&nbsp; <samp>typescript</samp><br>
-GTM outbound command center for Darwinian Ventures — pipeline, sequences,<br>
-and operator tooling in one place.
+<img src="./hd-focus.svg" width="620" alt="focus"/>
 
-**[DarwinianVentures](https://darwinian-ventures.vercel.app)** &nbsp;·&nbsp; <samp>typescript</samp><br>
-Home site for Darwinian Ventures: AI agent fleet for brokerages and<br>
-operators who need systems, not demos.
+**languages** &nbsp;·&nbsp; <samp>typed app code, scripting, contracts</samp><br>
+Application logic in TypeScript and C#, automation and tooling in Python,<br>
+on-chain pieces in Solidity when the problem calls for it.
 
-**[VESARA](https://vesara-homepage.vercel.app)** &nbsp;·&nbsp; <samp>typescript</samp><br>
-Enterprise landing for Vesara AI — autonomous operating layer and trusted<br>
-operating record.
+**systems** &nbsp;·&nbsp; <samp>agents, pipelines, runtimes</samp><br>
+Orchestration, background jobs, event-shaped workflows, and long-running<br>
+processes — browser, server, and game-engine contexts.
+
+**interfaces** &nbsp;·&nbsp; <samp>web, realtime, tools</samp><br>
+React UIs, API surfaces, and operator tooling. Prefer clear contracts over<br>
+framework noise.
+
+**platform** &nbsp;·&nbsp; <samp>data, containers, delivery</samp><br>
+Postgres, Docker, CI, and the boring path from commit to running system.
 
 <img src="./hd-stats.svg" width="620" alt="stats"/>
 
@@ -55,22 +53,9 @@ operating record.
 
 <img src="./hd-about-this-page.svg" width="620" alt="about this page"/>
 
-Every graphic here is generated, not embedded from anyone else's server.<br>
-`ascii.svg` is a photo pushed through a character ramp by<br>
-[`scripts/make_portrait.py`](scripts/make_portrait.py); the stat graphics and<br>
-these section headings are drawn by [a scheduled action](.github/workflows/stats.yml)<br>
-straight from the GitHub GraphQL API, once a day, committing only what changed.
+Every graphic here is generated inside this repository — no third-party<br>
+stat cards. Portrait via [`scripts/make_portrait.py`](scripts/make_portrait.py);<br>
+stats via [a scheduled action](.github/workflows/stats.yml) and the GitHub API.
 
-They animate with SMIL inside the SVG, because GitHub strips scripts from<br>
-READMEs — and since nothing loads from a third party, nothing here can<br>
-rate-limit or go dark. The headings are SVGs for the same reason: GitHub also<br>
-strips CSS, so an image is the only way to put this page's own typeface on them.
-
-The typeface is [JetBrains Mono](scripts/fonts), subset to just the characters<br>
-each graphic draws and inlined as base64. That isn't only for looks: the<br>
-portrait's grid assumes an advance width of exactly 0.600 em, and a viewer whose<br>
-default monospace is narrower would otherwise see it squeezed.
-
-Commit totals fold in private repositories as anonymous day counts — no repo<br>
-names, ever. Language totals cover public repositories only. `year.svg` uses<br>
-the portrait's character ramp: `:` `+` `#` `@`, quiet to loud.
+Commit totals include private work as anonymous day counts only. Language<br>
+bars stay public-repo only. `year.svg` uses the portrait ramp: `:` `+` `#` `@`.
