@@ -371,14 +371,28 @@ def hbar(x, y, w, h, cls="d-f", r=3.0):
 
 
 def draw_stats(s):
-    """Hero number, the two secondary counts, and the weekly sparkline."""
+    """Hero number, secondary counts, and a cumulative green sparkline."""
     H = 148
     weekly = s["weekly"] or [0]
-    peak = max(weekly) or 1
-    p = [head(WIDTH, H)]
+    # Running total across the year — never returns to baseline between weeks.
+    cum, running = [], 0
+    for v in weekly:
+        running += v
+        cum.append(running)
+    peak = max(cum) or 1
+
+    # GitHub-ish greens; scoped to this chart so other graphics stay grey.
+    green = (".g-s{stroke:#1a7f37}.g-f{fill:#1a7f37}"
+             ".g-w{fill:#1a7f37;opacity:.18}"
+             "@media(prefers-color-scheme:dark){"
+             ".g-s{stroke:#3fb950}.g-f{fill:#3fb950}"
+             ".g-w{fill:#3fb950;opacity:.22}}")
+    p = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{H}" '
+         f'viewBox="0 0 {WIDTH} {H}" fill="none" font-family="{MONO}">'
+         + style(extra=green)]
     p.append(f'<g opacity="0">{fade(0.10)}'
              + label(0, 50, s["total"], 52, "e-f", extra=' font-weight="600"')
-             + label(0, 72, "contributions in the last year", 12) + '</g>')
+             + label(0, 72, "commits in the last year", 12) + '</g>')
     for i, (val, lab) in enumerate([(s["active"], "active days"),
                                     (s["best_week"], "best week")]):
         p.append(f'<g opacity="0">{fade(0.30 + i * 0.12)}'
@@ -388,22 +402,24 @@ def draw_stats(s):
 
     base, top = H - 10, H - 58
     span = base - top
-    step = WIDTH / max(len(weekly) - 1, 1)
-    pts = [(i * step, base - (v / peak) * span) for i, v in enumerate(weekly)]
+    step = WIDTH / max(len(cum) - 1, 1)
+    pts = [(i * step, base - (v / peak) * span) for i, v in enumerate(cum)]
     clip, cursor = wipe("rs", 0, top - 6, WIDTH, span + 8, 0.50)
+    # Green cursor for the reveal
+    cursor = cursor.replace('class="d-f"', 'class="g-f"')
     p.append(clip)
     p.append('<g clip-path="url(#rs)">')
     p.append(f'<path d="M{pts[0][0]:.1f} {base:.1f}'
              + "".join(f'L{x:.1f} {y:.1f}' for x, y in pts)
-             + f'L{pts[-1][0]:.1f} {base:.1f}Z" class="w"/>')
+             + f'L{pts[-1][0]:.1f} {base:.1f}Z" class="g-w"/>')
     p.append(f'<path d="M{pts[0][0]:.1f} {pts[0][1]:.1f}'
              + "".join(f'L{x:.1f} {y:.1f}' for x, y in pts[1:])
-             + f'" class="d-s" stroke-width="2" stroke-linejoin="round" '
+             + f'" class="g-s" stroke-width="2" stroke-linejoin="round" '
              f'stroke-linecap="round"/>')
     p.append("</g>")
     p.append(cursor)
     ex, ey = pts[-1]
-    p.append(f'<circle cx="{ex - 2:.1f}" cy="{ey:.1f}" r="4.5" class="e-f r" '
+    p.append(f'<circle cx="{ex - 2:.1f}" cy="{ey:.1f}" r="4.5" class="g-f r" '
              f'stroke-width="2" opacity="0">{fade(0.50 + REVEAL, 0.35)}</circle>')
     p.append("</svg>")
     return "".join(p)
