@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./ascii.svg" width="480" alt="ANDREWBTC707"/>
+<img src="./ascii.svg" width="500" alt="ANDREWBTC707"/>
 
 <img src="./stats.svg" width="620" alt="Contributions in the last year"/>
 
