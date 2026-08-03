@@ -600,7 +600,7 @@ def main():
     out_dir = os.environ.get("OUT_DIR", ".")
 
     s = summarise(token, login)
-    files = {"stats.svg": draw_stats(s), "streak.svg": draw_streak(s),
+    files = {"commits.svg": draw_stats(s), "streak.svg": draw_streak(s),
              "langs.svg": draw_langs(s), "year.svg": draw_year(s)}
     for word in ("about", "stack", "focus", "stats", "about this page"):
         files[f"hd-{word.replace(' ', '-')}.svg"] = draw_heading(word)

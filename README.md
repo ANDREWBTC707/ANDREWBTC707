@@ -2,7 +2,7 @@
 
 <img src="./ascii.svg" width="560" alt="ANDREWBTC707"/>
 
-<img src="./stats.svg" width="620" alt="Contributions in the last year"/>
+<img src="./commits.svg" width="620" alt="Commits in the last year"/>
 
 </div>
 
