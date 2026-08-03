@@ -4,7 +4,7 @@
 No third-party services and no dependencies — standard library only.
 
 Outputs, all sharing one visual language with ascii.svg (the portrait):
-  stats.svg   hero total + weekly sparkline
+  commits.svg hero total + cumulative green sparkline
   streak.svg  current and longest streak
   langs.svg   top languages, by bytes and by repo count
   year.svg    the year as a character map, in the portrait's own ramp
